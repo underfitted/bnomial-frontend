@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Question from "./components/Question";
 import Footer from "./components/Footer";
+import { Question as QuestionType } from "./types";
 import axios from "axios";
 
 export const endpoints = {
@@ -11,7 +12,7 @@ export const endpoints = {
 const URL = "https://hv2i83bavj.execute-api.us-east-1.amazonaws.com/prod/";
 
 function App() {
-  const [randomQuestion, setRandomQuestion] = useState([]);
+  const [randomQuestion, setRandomQuestion] = useState<QuestionType>();
 
   useEffect(() => {
     // Load Random Question
@@ -22,9 +23,9 @@ function App() {
 
   return (
     <>
-      <Header />   
+      <Header />
       <Question question={randomQuestion} />
-      <Footer />  
+      <Footer />
     </>
   );
 }
