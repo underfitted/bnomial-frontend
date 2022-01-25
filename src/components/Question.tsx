@@ -4,12 +4,13 @@ import {
   QuestionContainer,
   QuestionDescription,
   QuestionTitle,
-  QuestionChoice, 
+  QuestionChoice,
   QuestionNumber,
-  QuestionNumberContainer,   
+  QuestionNumberContainer,
 } from "./Question.styles";
+import { Question as QuestionType } from '../types';
 
-function Question({ question }) {  
+function Question({ question }: { question?: QuestionType }) {
   return (
     <QuestionContainer>
         <QuestionNumberContainer>
@@ -17,20 +18,20 @@ function Question({ question }) {
           <QuestionNumber>0013</QuestionNumber>
         </QuestionNumberContainer>
       <QuestionTitle>{question?.title}</QuestionTitle>
-      <QuestionDescription>{question?.content}</QuestionDescription>     
+      <QuestionDescription>{question?.content}</QuestionDescription>
       {
       /*
       Object.keys(question?.choices).map(function(key) {
         return <QuestionChoice key={key}>{question?.choices[key]}</QuestionChoice>;
       })
       */
-      } 
+      }
       <QuestionChoice>Habana</QuestionChoice>
       <QuestionChoice>Miami</QuestionChoice>
       <QuestionChoice>Madrid</QuestionChoice>
       <QuestionButton>SUBMIT MY ANSWER</QuestionButton>
       <QuestionButton>I'M DONE</QuestionButton>
-    </QuestionContainer>    
+    </QuestionContainer>
   );
 }
 

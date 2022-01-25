@@ -1,17 +1,18 @@
 import tw, { styled } from "twin.macro";
 
 export const HeaderContainer = styled.div`
-  ${tw`  
+  ${tw`
     flex
-    flex-col 
-    md:flex-row   
+    flex-col
+    md:flex-row
     justify-start
     pt-14
-    px-14 
+    px-14
     transition-all
-    z-10    
+    z-10
   `}
-  ${(props) => (props.dark ? tw`bg-black` : tw`bg-transparent`)}
+  ${(props: { dark: boolean }) =>
+    props.dark ? tw`bg-black` : tw`bg-transparent`}
 `;
 
 export const HeaderButton = styled.button`
@@ -24,7 +25,7 @@ export const HeaderButton = styled.button`
     mr-2
   `}
   background-color: #1D1E1F;
-  color:white;
+  color: white;
   &:hover {
     background-color: white;
     color: black;
@@ -42,5 +43,5 @@ export const HeaderActiveButton = styled.button`
     mr-2
   `}
   background-color: white;
-  color:black;
+  color: black;
 `;

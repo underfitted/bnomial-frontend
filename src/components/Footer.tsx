@@ -1,29 +1,25 @@
 import React, { useState, useEffect } from "react";
-import { 
-    FooterContainer, 
-} from "./Footer.styles";
+import { FooterContainer } from "./Footer.styles";
 
 function Footer() {
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
-    window.addEventListener("scroll", () => {
+    const listener = () => {
       if (window.scrollY > 100) {
         setIsDark(true);
       } else setIsDark(false);
-    });
+    };
+    window.addEventListener("scroll", listener);
 
     return () => {
-      window.removeEventListener("scroll");
+      window.removeEventListener("scroll", listener);
     };
   }, []);
 
   return (
     <FooterContainer dark={isDark}>
-     <img
-        src="./logo.png"
-        alt=""
-      />
+      <img src="./logo.png" alt="" />
     </FooterContainer>
   );
 }
