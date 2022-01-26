@@ -2,20 +2,28 @@ import { Location } from "react-router-dom";
 
 const PAGES = [
   'home',
-  'leaderboard',
-  'yesterdays',
+  'quiz',
   'how_it_works',
-  'contribute',
+  'leaderboard',
+  'practice',
+  'about',
+  'login',
+  'signup',
+  'dashboard'
 ] as const;
 
 export type Page = typeof PAGES[number];
 
 const pageUrls: { [key in Page]: string } = {
   home: "/",
-  leaderboard: "/leaderboard",
-  yesterdays: "/yesterdays",
+  quiz: "/quiz",
   how_it_works: "/how-it-works",
-  contribute: "/contribute",
+  leaderboard: "/leaderboard",
+  practice: "/practice",
+  about: "/about",
+  login: "/login",
+  signup: "/signup",
+  dashboard: "/dashboard"
 };
 
 export const currentPage = (location: Location): Page | undefined => {
