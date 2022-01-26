@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from "axios";
 
 import { Question } from './types';
 
@@ -16,3 +17,17 @@ export const useApiClient = () => {
   }
   return apiClient;
 }
+
+
+const BACKEND_URL = "https://hv2i83bavj.execute-api.us-east-1.amazonaws.com/prod";
+
+export const endpoints = {
+  random_question: "questions/random",
+};
+
+export const DefaultApiClient: ApiClient = {
+  getRandomQuestion: async () => {
+    const response = await axios.get(`${BACKEND_URL}/questions/random`);
+    return response.data as Question;
+  },
+};
