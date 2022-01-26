@@ -1,4 +1,7 @@
 export type Question = {
-  title: string;
-  content: string;
-}
+    id: string;
+    title: string;
+    content: string;
+    choices: { [key: string]: string };
+    practice: boolean;
+};
