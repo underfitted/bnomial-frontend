@@ -1,23 +1,19 @@
 import React from "react";
-import axios from "axios";
-import { Question as QuestionType } from '../types';
+import { Question as QuestionType } from "../types";
+import { useApiClient } from "../api";
 import Question from "./Question";
 
-const BACKEND_URL = "https://hv2i83bavj.execute-api.us-east-1.amazonaws.com/prod/";
-
-export const endpoints = {
-  random_question: "questions/random",
-};
-
 const HomePage = () => {
+  const apiClient = useApiClient();
   const [question, setQuestion] = React.useState<QuestionType>();
 
   React.useEffect(() => {
-    // Load Random Question
-    axios
-      .get(`${BACKEND_URL}${endpoints.random_question}`)
-      .then((res) => setQuestion(res.data));
-  }, []);
+    (async () => {
+      // Load Random Question
+      const question = await apiClient.getRandomQuestion();
+      setQuestion(question);
+    })();
+  }, [apiClient]);
 
   return <Question question={question} />;
 };
