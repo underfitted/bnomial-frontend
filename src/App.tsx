@@ -12,23 +12,15 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route element={<PageLayout />}>
-            <Route path={pathForPage("home")} element={<HomePage />} />
-            <Route
-              path={pathForPage("leaderboard")}
-              element={<PlaceholderPage title="Leaderboard" />}
-            />
-            <Route
-              path={pathForPage("yesterdays")}
-              element={<PlaceholderPage title="Yesterdays" />}
-            />
-            <Route
-              path={pathForPage("how_it_works")}
-              element={<PlaceholderPage title="How it works" />}
-            />
-            <Route
-              path={pathForPage("contribute")}
-              element={<PlaceholderPage title="Contribute" />}
-            />
+          <Route path={pathForPage('home')} element={<HomePage/>} />
+          <Route path={pathForPage('quiz')} element={<PlaceholderPage title='Quiz' />} />
+          <Route path={pathForPage('how_it_works')} element={<PlaceholderPage title='How it works' />} />
+          <Route path={pathForPage('leaderboard')} element={<PlaceholderPage title='Leaderboard' />} />
+          <Route path={pathForPage('practice')} element={<PlaceholderPage title='Practice' />} />
+          <Route path={pathForPage('about')} element={<PlaceholderPage title='About' />} />
+          <Route path={pathForPage('login')} element={<PlaceholderPage title='Login' />} />
+          <Route path={pathForPage('signup')} element={<PlaceholderPage title='Signup' />} />
+          <Route path={pathForPage('dashboard')} element={<PlaceholderPage title='User Dashboard' />} />
           </Route>
         </Routes>
       </BrowserRouter>

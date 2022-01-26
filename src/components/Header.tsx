@@ -4,11 +4,14 @@ import { HeaderContainer, Button } from "./Header.styles";
 import { Page, currentPage, pathForPage } from "../pages";
 
 const buttons: { name: string, page: Page }[] = [
-  { name: "LET'S GO", page: "home" },
-  { name: "LEADERBOARD", page: "leaderboard" },
-  { name: "YESTERDAYS", page: "yesterdays" },
+  { name: "HOME", page: "home" },
+  { name: "QUIZ", page: "quiz" },
+  { name: "PRACTICE", page: "practice" },
   { name: "HOW IT WORKS", page: "how_it_works" },
-  { name: "CONTRIBUTE", page: "contribute" },
+  { name: "LEADERBOARD", page: "leaderboard" },
+  { name: "ABOUT", page: "about" },
+  { name: "LOGIN", page: "login" },
+  
 ];
 
 function Header() {
