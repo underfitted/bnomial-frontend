@@ -21,10 +21,6 @@ export const useApiClient = () => {
 
 const BACKEND_URL = "https://hv2i83bavj.execute-api.us-east-1.amazonaws.com/prod";
 
-export const endpoints = {
-  random_question: "questions/random",
-};
-
 export const DefaultApiClient: ApiClient = {
   getRandomQuestion: async () => {
     const response = await axios.get(`${BACKEND_URL}/questions/random`);
