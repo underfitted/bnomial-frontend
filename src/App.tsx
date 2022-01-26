@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { BrowserRouter } from "react-router-dom";
 import Header from "./components/Header";
 import Question from "./components/Question";
 import Footer from "./components/Footer";
@@ -22,11 +23,11 @@ function App() {
   }, []);
 
   return (
-    <>
+    <BrowserRouter>
       <Header />
       <Question question={randomQuestion} />
       <Footer />
-    </>
+    </BrowserRouter>
   );
 }
 
