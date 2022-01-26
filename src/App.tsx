@@ -1,14 +1,15 @@
-import { BrowserRouter } from "react-router-dom";
-import Header from "./components/Header";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
-import Footer from "./components/Footer";
+import PageLayout from "./components/PageLayout";
 
 function App() {
   return (
     <BrowserRouter>
-      <Header />
-      <Home />
-      <Footer />
+      <Routes>
+        <Route element={<PageLayout/>}>
+          <Route path="/" element={<Home/>} />
+        </Route>
+      </Routes>
     </BrowserRouter>
   );
 }
