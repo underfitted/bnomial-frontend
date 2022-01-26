@@ -19,6 +19,7 @@ export const useApiClient = () => {
 }
 
 
+// TODO: Replace with real backend URL provided via env vars
 const BACKEND_URL = "https://hv2i83bavj.execute-api.us-east-1.amazonaws.com/prod";
 
 export const DefaultApiClient: ApiClient = {
