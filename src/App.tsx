@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./components/HomePage";
 import PlaceholderPage from "./components/PlaceholderPage";
 import PageLayout from "./components/PageLayout";
-import Quiz from "./components/Quiz";
+import QuizPage from "./components/QuizPage";
 
 import { ApiContext, DefaultApiClient } from "./api";
 import { pathForPage } from "./pages";
