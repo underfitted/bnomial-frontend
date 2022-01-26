@@ -1,12 +1,14 @@
 import { useLocation, Link } from "react-router-dom";
 import { HeaderContainer, Button } from "./Header.styles";
 
-const buttons = [
-  { name: "LET'S GO", to: "/" },
-  { name: "LEADERBOARD", to: "/leaderboard" },
-  { name: "YESTERDAYS", to: "/yesterdays" },
-  { name: "HOW IT WORKS", to: "/how_it_works" },
-  { name: "CONTRIBUTE", to: "/contribute" },
+import { Page, currentPage, pathForPage } from "../pages";
+
+const buttons: { name: string, page: Page }[] = [
+  { name: "LET'S GO", page: "home" },
+  { name: "LEADERBOARD", page: "leaderboard" },
+  { name: "YESTERDAYS", page: "yesterdays" },
+  { name: "HOW IT WORKS", page: "how_it_works" },
+  { name: "CONTRIBUTE", page: "contribute" },
 ];
 
 function Header() {
@@ -14,9 +16,9 @@ function Header() {
 
   return (
     <HeaderContainer>
-      {buttons.map(({ name, to }) => (
-        <Link to={to}>
-          <Button highlighted={location.pathname === to}>{name}</Button>
+      {buttons.map(({ name, page }) => (
+        <Link to={pathForPage(page)}>
+          <Button highlighted={currentPage(location) === page}>{name}</Button>
         </Link>
       ))}
     </HeaderContainer>
