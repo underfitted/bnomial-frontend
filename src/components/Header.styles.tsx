@@ -11,29 +11,15 @@ export const HeaderContainer = styled.div`
     transition-all
     z-10
   `}
-  ${(props: { dark: boolean }) =>
+  ${(props: { dark?: boolean }) =>
     props.dark ? tw`bg-black` : tw`bg-transparent`}
 `;
 
-export const HeaderButton = styled.button`
-  ${tw`
-    cursor-pointer
-    font-bold
-    rounded
-    px-4
-    py-2
-    mr-2
-  `}
-  background-color: #1D1E1F;
-  color: white;
-  &:hover {
-    background-color: white;
-    color: black;
-    transition: all 0.2s;
-  }
-`;
+type ButtonProps = {
+  highlighted: boolean;
+}
 
-export const HeaderActiveButton = styled.button`
+export const Button = styled.button`
   ${tw`
     cursor-pointer
     font-bold
@@ -42,6 +28,19 @@ export const HeaderActiveButton = styled.button`
     py-2
     mr-2
   `}
-  background-color: white;
-  color: black;
+
+  ${(props: ButtonProps) =>
+    props.highlighted
+      ? tw`
+        bg-white
+        text-black
+      `
+      : tw`
+        bg-gray-900
+        text-white
+        hover:bg-white
+        hover:text-black
+        hover:transition-all
+        hover:duration-200
+      `}
 `;
