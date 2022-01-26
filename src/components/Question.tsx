@@ -1,7 +1,6 @@
 import React from "react";
 import {
   QuestionButton,
-  QuestionContainer,
   QuestionDescription,
   QuestionTitle,
   QuestionChoice,
@@ -12,7 +11,7 @@ import { Question as QuestionType } from '../types';
 
 function Question({ question }: { question?: QuestionType }) {
   return (
-    <QuestionContainer>
+    <>
         <QuestionNumberContainer>
           QUESTION
           <QuestionNumber>0013</QuestionNumber>
@@ -31,7 +30,7 @@ function Question({ question }: { question?: QuestionType }) {
       <QuestionChoice>Madrid</QuestionChoice>
       <QuestionButton>SUBMIT MY ANSWER</QuestionButton>
       <QuestionButton>I'M DONE</QuestionButton>
-    </QuestionContainer>
+    </>
   );
 }
 
