@@ -9,7 +9,7 @@ export const endpoints = {
   random_question: "questions/random",
 };
 
-const Home = () => {
+const HomePage = () => {
   const [question, setQuestion] = React.useState<QuestionType>();
 
   React.useEffect(() => {
@@ -22,4 +22,4 @@ const Home = () => {
   return <Question question={question} />;
 };
 
-export default Home;
+export default HomePage;

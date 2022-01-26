@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./components/Home";
+import HomePage from "./components/HomePage";
 import PlaceholderPage from "./components/PlaceholderPage";
 import PageLayout from "./components/PageLayout";
 
@@ -10,7 +10,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route element={<PageLayout/>}>
-          <Route path={pathForPage('home')} element={<Home/>} />
+          <Route path={pathForPage('home')} element={<HomePage/>} />
           <Route path={pathForPage('leaderboard')} element={<PlaceholderPage title='Leaderboard' />} />
           <Route path={pathForPage('yesterdays')} element={<PlaceholderPage title='Yesterdays' />} />
           <Route path={pathForPage('how_it_works')} element={<PlaceholderPage title='How it works' />} />
