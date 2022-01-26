@@ -1,32 +1,23 @@
-import { useState, useEffect } from "react";
-import Header from "./components/Header";
-import Question from "./components/Question";
-import Footer from "./components/Footer";
-import { Question as QuestionType } from "./types";
-import axios from "axios";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import HomePage from "./components/HomePage";
+import PlaceholderPage from "./components/PlaceholderPage";
+import PageLayout from "./components/PageLayout";
 
-export const endpoints = {
-  random_question: "questions/random",
-};
-
-const URL = "https://hv2i83bavj.execute-api.us-east-1.amazonaws.com/prod/";
+import { pathForPage } from "./pages";
 
 function App() {
-  const [randomQuestion, setRandomQuestion] = useState<QuestionType>();
-
-  useEffect(() => {
-    // Load Random Question
-    axios
-      .get(`${URL}${endpoints.random_question}`)
-      .then((res) => setRandomQuestion(res.data));
-  }, []);
-
   return (
-    <>
-      <Header />
-      <Question question={randomQuestion} />
-      <Footer />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<PageLayout/>}>
+          <Route path={pathForPage('home')} element={<HomePage/>} />
+          <Route path={pathForPage('leaderboard')} element={<PlaceholderPage title='Leaderboard' />} />
+          <Route path={pathForPage('yesterdays')} element={<PlaceholderPage title='Yesterdays' />} />
+          <Route path={pathForPage('how_it_works')} element={<PlaceholderPage title='How it works' />} />
+          <Route path={pathForPage('contribute')} element={<PlaceholderPage title='Contribute' />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

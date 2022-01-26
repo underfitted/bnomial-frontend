@@ -1,33 +1,26 @@
-import React, { useState, useEffect } from "react";
-import {
-  HeaderContainer,
-  HeaderButton,
-  HeaderActiveButton,
-} from "./Header.styles";
+import { useLocation, Link } from "react-router-dom";
+import { HeaderContainer, Button } from "./Header.styles";
+
+import { Page, currentPage, pathForPage } from "../pages";
+
+const buttons: { name: string, page: Page }[] = [
+  { name: "LET'S GO", page: "home" },
+  { name: "LEADERBOARD", page: "leaderboard" },
+  { name: "YESTERDAYS", page: "yesterdays" },
+  { name: "HOW IT WORKS", page: "how_it_works" },
+  { name: "CONTRIBUTE", page: "contribute" },
+];
 
 function Header() {
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    const listener = () => {
-      if (window.scrollY > 100) {
-        setIsDark(true);
-      } else setIsDark(false);
-    };
-    window.addEventListener("scroll", listener);
-
-    return () => {
-      window.removeEventListener("scroll", listener);
-    };
-  }, []);
+  const location = useLocation();
 
   return (
-    <HeaderContainer dark={isDark}>
-      <HeaderActiveButton>LET'S GO</HeaderActiveButton>
-      <HeaderButton>LEADERBOARD</HeaderButton>
-      <HeaderButton>YESTERDAYS</HeaderButton>
-      <HeaderButton>HOW IT WORKS</HeaderButton>
-      <HeaderButton>CONTRIBUTE</HeaderButton>
+    <HeaderContainer>
+      {buttons.map(({ name, page }) => (
+        <Link to={pathForPage(page)}>
+          <Button highlighted={currentPage(location) === page}>{name}</Button>
+        </Link>
+      ))}
     </HeaderContainer>
   );
 }
