@@ -1,4 +1,4 @@
-import tw, { styled } from "twin.macro"
+import tw, { styled } from "twin.macro";
 
 export const FooterContainer = styled.div`
     ${tw`
@@ -15,4 +15,4 @@ export const FooterContainer = styled.div`
       h-16
     `}
     }
-`
+`;

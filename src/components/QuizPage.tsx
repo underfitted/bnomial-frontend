@@ -1,21 +1,21 @@
-import React from "react"
-import { Question as QuestionType } from "../types"
-import { useApiClient } from "../api"
-import Question from "./Question"
+import React from "react";
+import { Question as QuestionType } from "../types";
+import { useApiClient } from "../api";
+import Question from "./Question";
 
 const QuizPage = () => {
-    const apiClient = useApiClient()
-    const [question, setQuestion] = React.useState<QuestionType>()
+    const apiClient = useApiClient();
+    const [question, setQuestion] = React.useState<QuestionType>();
 
     React.useEffect(() => {
-        ;(async () => {
+        (async () => {
             // Load Random Question
-            const question = await apiClient.getRandomQuestion()
-            setQuestion(question)
-        })()
-    }, [apiClient])
+            const question = await apiClient.getRandomQuestion();
+            setQuestion(question);
+        })();
+    }, [apiClient]);
 
-    return <Question question={question} />
-}
+    return <Question question={question} />;
+};
 
-export default QuizPage
+export default QuizPage;

@@ -1,4 +1,4 @@
-import { Location } from "react-router-dom"
+import { Location } from "react-router-dom";
 
 const PAGES = [
     "home",
@@ -10,9 +10,9 @@ const PAGES = [
     "login",
     "signup",
     "dashboard",
-] as const
+] as const;
 
-export type Page = typeof PAGES[number]
+export type Page = typeof PAGES[number];
 
 const pageUrls: { [key in Page]: string } = {
     home: "/",
@@ -24,11 +24,11 @@ const pageUrls: { [key in Page]: string } = {
     login: "/login",
     signup: "/signup",
     dashboard: "/dashboard",
-}
+};
 
 export const currentPage = (location: Location): Page | undefined => {
-    const { pathname } = location
-    return PAGES.find((page) => pageUrls[page] === pathname)
-}
+    const { pathname } = location;
+    return PAGES.find((page) => pageUrls[page] === pathname);
+};
 
-export const pathForPage = (page: Page): string => pageUrls[page]
+export const pathForPage = (page: Page): string => pageUrls[page];
