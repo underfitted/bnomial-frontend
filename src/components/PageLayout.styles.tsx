@@ -13,7 +13,6 @@ export const PageBody = styled.div`
     p-16    
     max-w-screen-md
     rounded-lg
+    bg-[#1d1e1f]
     `}
-
-    background-color: #1d1e1f;
 `;

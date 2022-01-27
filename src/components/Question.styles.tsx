@@ -42,11 +42,16 @@ export const QuestionChoiceContainer = styled.div`
     `}
 `;
 
-export const QuestionChoice = styled.div`
+export const QuestionChoice = styled.button`
     ${tw`
+    cursor-pointer
+    block
+    w-full
+    text-left
     mb-1
     rounded-md
     p-5
+    border-0
     bg-[#242526]
     text-[#868787]
     hover:(bg-[#565758] text-white)

@@ -25,16 +25,13 @@ export const Button = styled.button`
     text-white
     text-xs
     font-mono
-  `}
+    bg-[#1d1e1f]
+    transition-all
+    duration-200
+    hover:(text-black bg-white)
+    `}
 
-    background: #1d1e1f;
-
-    ${(props: ButtonProps) =>
-        props.highlighted
-            ? tw`bg-white
-                 text-black`
-            : tw`hover:text-black
-                 hover:transition-all
-                 hover:duration-200
-                 hover:bg-white`}
+    ${(props: ButtonProps) => {
+        if (props.highlighted) return tw`bg-white text-black`;
+    }}
 `;
