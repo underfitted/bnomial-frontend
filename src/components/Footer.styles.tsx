@@ -1,7 +1,7 @@
-import tw, { styled } from "twin.macro";
+import tw, { styled } from "twin.macro"
 
 export const FooterContainer = styled.div`
-  ${tw`
+    ${tw`
     flex
     flex-row
     justify-start
@@ -9,11 +9,10 @@ export const FooterContainer = styled.div`
     z-10
     ml-14
   `}
-  ${(props: { dark: boolean }) =>
-    props.dark ? tw`bg-black` : tw`bg-transparent`}
+    ${(props: { dark: boolean }) => (props.dark ? tw`bg-black` : tw`bg-transparent`)}
   img {
-    ${tw`
+        ${tw`
       h-16
     `}
-  }
-`;
+    }
+`

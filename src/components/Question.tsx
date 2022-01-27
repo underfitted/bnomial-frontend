@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 import {
     QuestionButton,
     QuestionDescription,
@@ -6,8 +6,8 @@ import {
     QuestionChoice,
     QuestionNumber,
     QuestionNumberContainer,
-} from "./Question.styles";
-import { Question as QuestionType } from "../types";
+} from "./Question.styles"
+import { Question as QuestionType } from "../types"
 
 function Question({ question }: { question?: QuestionType }) {
     return (
@@ -27,7 +27,7 @@ function Question({ question }: { question?: QuestionType }) {
             <QuestionButton>SUBMIT MY ANSWER</QuestionButton>
             <QuestionButton>I'M DONE</QuestionButton>
         </>
-    );
+    )
 }
 
-export default Question;
+export default Question
