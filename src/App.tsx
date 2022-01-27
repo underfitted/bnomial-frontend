@@ -1,11 +1,11 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom"
-import HomePage from "./components/HomePage"
-import PlaceholderPage from "./components/PlaceholderPage"
-import PageLayout from "./components/PageLayout"
-import QuizPage from "./components/QuizPage"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import HomePage from "./components/HomePage";
+import PlaceholderPage from "./components/PlaceholderPage";
+import PageLayout from "./components/PageLayout";
+import QuizPage from "./components/QuizPage";
 
-import { ApiContext, DefaultApiClient, DummyApiClient } from "./api"
-import { pathForPage } from "./pages"
+import { ApiContext, DefaultApiClient, DummyApiClient } from "./api";
+import { pathForPage } from "./pages";
 
 function App() {
     return (
@@ -27,7 +27,7 @@ function App() {
                 </Routes>
             </BrowserRouter>
         </ApiContext.Provider>
-    )
+    );
 }
 
-export default App
+export default App;

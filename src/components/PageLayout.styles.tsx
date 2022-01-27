@@ -1,4 +1,4 @@
-import tw, { styled } from "twin.macro"
+import tw, { styled } from "twin.macro";
 
 export const PageBody = styled.div`
     ${tw`
@@ -14,4 +14,4 @@ export const PageBody = styled.div`
 
     background-size: cover !important;
     background-color: #1d1e1f;
-`
+`;

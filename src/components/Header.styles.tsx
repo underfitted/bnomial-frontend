@@ -1,4 +1,4 @@
-import tw, { styled } from "twin.macro"
+import tw, { styled } from "twin.macro";
 
 export const HeaderContainer = styled.div`
     ${tw`
@@ -12,11 +12,11 @@ export const HeaderContainer = styled.div`
     z-10
   `}
     ${(props: { dark?: boolean }) => (props.dark ? tw`bg-black` : tw`bg-transparent`)}
-`
+`;
 
 type ButtonProps = {
-    highlighted: boolean
-}
+    highlighted: boolean;
+};
 
 export const Button = styled.button`
     ${tw`
@@ -42,4 +42,4 @@ export const Button = styled.button`
         hover:transition-all
         hover:duration-200
       `}
-`
+`;

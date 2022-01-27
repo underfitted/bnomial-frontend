@@ -1,7 +1,7 @@
-import { useLocation, Link } from "react-router-dom"
-import { HeaderContainer, Button } from "./Header.styles"
+import { useLocation, Link } from "react-router-dom";
+import { HeaderContainer, Button } from "./Header.styles";
 
-import { Page, currentPage, pathForPage } from "../pages"
+import { Page, currentPage, pathForPage } from "../pages";
 
 const buttons: { name: string; page: Page }[] = [
     { name: "HOME", page: "home" },
@@ -11,10 +11,10 @@ const buttons: { name: string; page: Page }[] = [
     { name: "LEADERBOARD", page: "leaderboard" },
     { name: "ABOUT", page: "about" },
     { name: "LOGIN", page: "login" },
-]
+];
 
 function Header() {
-    const location = useLocation()
+    const location = useLocation();
 
     return (
         <HeaderContainer>
@@ -24,7 +24,7 @@ function Header() {
                 </Link>
             ))}
         </HeaderContainer>
-    )
+    );
 }
 
-export default Header
+export default Header;

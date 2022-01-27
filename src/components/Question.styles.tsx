@@ -1,4 +1,4 @@
-import tw, { styled } from "twin.macro"
+import tw, { styled } from "twin.macro";
 
 export const QuestionContainer = styled.div`
     ${tw`
@@ -14,7 +14,7 @@ export const QuestionContainer = styled.div`
 
     background-size: cover !important;
     background-color: #1d1e1f;
-`
+`;
 
 export const QuestionTitle = styled.h1`
     ${tw`
@@ -23,7 +23,7 @@ export const QuestionTitle = styled.h1`
     mb-8
     mt-16
   `}
-`
+`;
 
 export const QuestionDescription = styled.p`
     ${tw`
@@ -34,7 +34,7 @@ export const QuestionDescription = styled.p`
   `}
     line-height: 1.3;
     color: #e3e3e3;
-`
+`;
 
 export const QuestionButton = styled.button`
     ${tw`
@@ -56,7 +56,7 @@ export const QuestionButton = styled.button`
         color: black;
         transition: all 0.2s;
     }
-`
+`;
 
 export const QuestionChoice = styled.div`
     ${tw`
@@ -66,7 +66,7 @@ export const QuestionChoice = styled.div`
     hover:(bg-[#565758])
   `}
     background-color: #242526
-`
+`;
 
 export const QuestionNumber = styled.div`
     ${tw`
@@ -77,7 +77,7 @@ export const QuestionNumber = styled.div`
     ml-4
   `}
     background-color: #565758
-`
+`;
 
 export const QuestionNumberContainer = styled.div`
     ${tw`
@@ -86,4 +86,4 @@ export const QuestionNumberContainer = styled.div`
     flex-row 
     items-center 
   `}
-`
+`;

@@ -1,8 +1,8 @@
-import { Outlet } from "react-router-dom"
+import { Outlet } from "react-router-dom";
 
-import Header from "./Header"
-import Footer from "./Footer"
-import { PageBody } from "./PageLayout.styles"
+import Header from "./Header";
+import Footer from "./Footer";
+import { PageBody } from "./PageLayout.styles";
 
 const PageLayout = () => {
     return (
@@ -13,7 +13,7 @@ const PageLayout = () => {
             </PageBody>
             <Footer />
         </>
-    )
-}
+    );
+};
 
-export default PageLayout
+export default PageLayout;
