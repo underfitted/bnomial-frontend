@@ -1,7 +1,7 @@
-import tw, { styled } from "twin.macro";
+import tw, { styled } from "twin.macro"
 
 export const PageBody = styled.div`
-  ${tw`
+    ${tw`
     pt-8
     px-14
     pb-4
@@ -12,6 +12,6 @@ export const PageBody = styled.div`
     rounded-[8px]
   `}
 
-  background-size: cover !important;
-  background-color: #1D1E1F
-`;
+    background-size: cover !important;
+    background-color: #1d1e1f;
+`
