@@ -24,10 +24,10 @@ export const Button = styled.button`
     border-0
     text-white
     text-xs
+    font-mono
   `}
 
     background: #1d1e1f;
-    font-family: "Source Code Pro", monospace;
 
     ${(props: ButtonProps) =>
         props.highlighted
