@@ -1,7 +1,7 @@
 {
     "env": {
         "browser": true,
-        "es2021": "When true, a modal dialog will show if the chosen local port isn't used for forwarding.",
+        "es2021": true,
         "node": true,
         "jest": true
     },
