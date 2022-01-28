@@ -1,17 +1,18 @@
 import tw, { styled } from "twin.macro";
 
+export const PageContainer = styled.div`
+    ${tw`
+    m-14
+    `}
+`;
+
 export const PageBody = styled.div`
     ${tw`
-    pt-8
-    px-14
-    pb-4
-    m-14
+    mt-12
     mb-4
-    mt-8
+    p-16    
     max-w-screen-md
-    rounded-[8px]
-  `}
-
-    background-size: cover !important;
-    background-color: #1d1e1f;
+    rounded-lg
+    bg-[#1d1e1f]
+    `}
 `;

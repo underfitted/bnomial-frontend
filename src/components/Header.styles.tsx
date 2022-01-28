@@ -6,12 +6,7 @@ export const HeaderContainer = styled.div`
     flex-col
     md:flex-row
     justify-start
-    pt-14
-    px-14
-    transition-all
-    z-10
-  `}
-    ${(props: { dark?: boolean }) => (props.dark ? tw`bg-black` : tw`bg-transparent`)}
+   `}
 `;
 
 type ButtonProps = {
@@ -23,23 +18,20 @@ export const Button = styled.button`
     cursor-pointer
     font-bold
     rounded
-    px-4
+    px-3
     py-2
-    mr-2
-  `}
+    mr-1
+    border-0
+    text-white
+    text-xs
+    font-mono
+    bg-[#1d1e1f]
+    transition-all
+    duration-200
+    hover:(text-black bg-white)
+    `}
 
-    ${(props: ButtonProps) =>
-        props.highlighted
-            ? tw`
-        bg-white
-        text-black
-      `
-            : tw`
-        bg-gray-900
-        text-white
-        hover:bg-white
-        hover:text-black
-        hover:transition-all
-        hover:duration-200
-      `}
+    ${(props: ButtonProps) => {
+        if (props.highlighted) return tw`bg-white text-black`;
+    }}
 `;

@@ -1,11 +1,13 @@
 import React from "react";
 import {
-    QuestionButton,
-    QuestionDescription,
-    QuestionTitle,
-    QuestionChoice,
-    QuestionNumber,
     QuestionNumberContainer,
+    QuestionNumber,
+    QuestionTitle,
+    QuestionDescription,
+    QuestionChoiceContainer,
+    QuestionChoice,
+    QuestionButtonContainer,
+    QuestionButton,
 } from "./Question.styles";
 import { Question as QuestionType } from "../types";
 
@@ -20,12 +22,16 @@ function Question({ question }: { question?: QuestionType }) {
             <QuestionTitle>{question?.title}</QuestionTitle>
             <QuestionDescription>{question?.content}</QuestionDescription>
 
-            {Object.getOwnPropertyNames(question?.choices || {}).map((key: string) => (
-                <QuestionChoice key={key}>{question?.choices[key]}</QuestionChoice>
-            ))}
+            <QuestionChoiceContainer>
+                {Object.getOwnPropertyNames(question?.choices || {}).map((key: string) => (
+                    <QuestionChoice key={key}>{question?.choices[key]}</QuestionChoice>
+                ))}
+            </QuestionChoiceContainer>
 
-            <QuestionButton>SUBMIT MY ANSWER</QuestionButton>
-            <QuestionButton>I&apos;M DONE</QuestionButton>
+            <QuestionButtonContainer>
+                <QuestionButton>&gt; SUBMIT MY ANSWER</QuestionButton>
+                <QuestionButton>✓ I&apos;M DONE</QuestionButton>
+            </QuestionButtonContainer>
         </>
     );
 }

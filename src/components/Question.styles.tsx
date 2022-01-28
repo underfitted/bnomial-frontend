@@ -1,89 +1,87 @@
 import tw, { styled } from "twin.macro";
 
-export const QuestionContainer = styled.div`
+export const QuestionNumberContainer = styled.div`
     ${tw`
-  pt-8
-  px-14
-  pb-4
-  m-14
-  mb-4
-  mt-8
-  max-w-screen-md
-  rounded-[8px]
+    flex    
+    items-center
+    text-xs
+    font-mono
   `}
+`;
 
-    background-size: cover !important;
-    background-color: #1d1e1f;
+export const QuestionNumber = styled.div`
+    ${tw`
+    rounded-sm
+    px-2
+    py-1 
+    ml-4
+    bg-[#565758]
+  `}
 `;
 
 export const QuestionTitle = styled.h1`
     ${tw`
+    mt-16
     text-2xl
     font-bold
-    mb-8
-    mt-16
   `}
 `;
 
 export const QuestionDescription = styled.p`
     ${tw`
-    font-light
-    text-lg
-    mb-14
-    break-words
+    mt-8
+    font-mono
+    text-sm
+    text-[#e3e3e3]
   `}
-    line-height: 1.3;
-    color: #e3e3e3;
+`;
+
+export const QuestionChoiceContainer = styled.div`
+    ${tw`
+    mt-24
+    `}
+`;
+
+export const QuestionChoice = styled.button`
+    ${tw`
+    cursor-pointer
+    block
+    w-full
+    text-left
+    mb-1
+    rounded-md
+    p-5
+    border-0
+    bg-[#242526]
+    text-[#868787]
+    hover:(bg-[#565758] text-white)
+  `}
+`;
+
+export const QuestionButtonContainer = styled.div`
+    ${tw` 
+    mt-8
+    `}
 `;
 
 export const QuestionButton = styled.button`
     ${tw`
     cursor-pointer
-    font-bold
-    rounded
+    font-mono
+    rounded-sm
     px-8
     py-2
-    mr-2
-    mt-8
-    mb-8
+    mr-1
+    border-0
+    bg-[#565758]
+    text-white
+    transition-all
+    duration-200
+    hover:(text-black bg-white)
   `}
-
-    background-color: #565758;
-    color: white;
 
     &:hover {
         background-color: white;
         color: black;
-        transition: all 0.2s;
     }
-`;
-
-export const QuestionChoice = styled.div`
-    ${tw`
-    rounded-[8px]
-    mt-2
-    p-4 
-    hover:(bg-[#565758])
-  `}
-    background-color: #242526
-`;
-
-export const QuestionNumber = styled.div`
-    ${tw`
-    rounded-[4px]
-    max-w-max 
-    px-2
-    py-1 
-    ml-4
-  `}
-    background-color: #565758
-`;
-
-export const QuestionNumberContainer = styled.div`
-    ${tw`
-    font-light
-    flex    
-    flex-row 
-    items-center 
-  `}
 `;
