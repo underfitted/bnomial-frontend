@@ -1,6 +1,6 @@
 import tw, { styled } from "twin.macro";
 
-export const PageCointainer = styled.div`
+export const PageContainer = styled.div`
     ${tw`
     m-14
     `}

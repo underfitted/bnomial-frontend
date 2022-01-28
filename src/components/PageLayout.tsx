@@ -2,17 +2,17 @@ import { Outlet } from "react-router-dom";
 
 import Header from "./Header";
 import Footer from "./Footer";
-import { PageBody, PageCointainer } from "./PageLayout.styles";
+import { PageBody, PageContainer } from "./PageLayout.styles";
 
 const PageLayout = () => {
     return (
-        <PageCointainer>
+        <PageContainer>
             <Header />
             <PageBody>
                 <Outlet />
             </PageBody>
             <Footer />
-        </PageCointainer>
+        </PageContainer>
     );
 };
 
