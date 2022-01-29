@@ -13,8 +13,8 @@ function App() {
         <ApiContext.Provider value={DummyApiClient}>
             <BrowserRouter>
                 <Routes>
+                    <Route path={pathForPage("home")} element={<HomePage />} />
                     <Route element={<PageLayout />}>
-                        <Route path={pathForPage("home")} element={<HomePage />} />
                         <Route path={pathForPage("quiz")} element={<QuizPage />} />
                         <Route path={pathForPage("how_it_works")} element={<PlaceholderPage title="How it works" />} />
                         <Route path={pathForPage("leaderboard")} element={<PlaceholderPage title="Leaderboard" />} />
