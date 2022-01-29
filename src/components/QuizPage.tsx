@@ -15,7 +15,18 @@ const QuizPage = () => {
         })();
     }, [apiClient]);
 
-    return <Question question={question} />;
+    if (!question) {
+        return <div>Loading...</div>;
+    }
+
+    return (
+        <Question
+            question={question}
+            onSubmit={() => {
+                /* do nothing yet */
+            }}
+        />
+    );
 };
 
 export default QuizPage;

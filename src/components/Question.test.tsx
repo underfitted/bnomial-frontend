@@ -11,7 +11,7 @@ describe("Question", () => {
             content: "The capital of France is Paris.",
         });
 
-        render(<Question question={question} />);
+        render(<Question question={question} onSubmit={jest.fn()} />);
 
         expect(screen.getByText(question.title)).toBeInTheDocument();
         expect(screen.getByText(question.content)).toBeInTheDocument();
@@ -27,7 +27,7 @@ describe("Question", () => {
             },
         });
 
-        render(<Question question={question} />);
+        render(<Question question={question} onSubmit={jest.fn()} />);
 
         expect(screen.getByText(question.choices.A)).toBeInTheDocument();
         expect(screen.getByText(question.choices.B)).toBeInTheDocument();
@@ -45,13 +45,32 @@ describe("Question", () => {
             },
         });
 
-        render(<Question question={question} />);
+        render(<Question question={question} onSubmit={jest.fn()} />);
 
         expect(screen.queryByText(/SUBMIT/)).not.toBeInTheDocument();
 
         userEvent.click(screen.getByText("Paris"));
 
         expect(screen.getByText(/SUBMIT/)).toBeInTheDocument();
+    });
+
+    test("calls onSubmit with selected answer id", () => {
+        const question = buildQuestion({
+            choices: {
+                A: "Paris",
+                B: "London",
+                C: "Berlin",
+                D: "Madrid",
+            },
+        });
+        const onSubmit = jest.fn();
+
+        render(<Question question={question} onSubmit={onSubmit} />);
+
+        userEvent.click(screen.getByText("Berlin"));
+        userEvent.click(screen.getByText(/SUBMIT/));
+
+        expect(onSubmit).toHaveBeenCalledWith("C");
     });
 });
 
