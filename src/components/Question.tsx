@@ -26,7 +26,10 @@ function Question({ question }: { question?: QuestionType }) {
 
             <QuestionChoiceContainer>
                 {Object.getOwnPropertyNames(question?.choices || {}).map((answerId: string) => (
-                    <QuestionChoice highlighted={false} key={answerId} onClick={() => setSelectedAnswer(answerId)}>
+                    <QuestionChoice
+                        highlighted={selectedAnswer === answerId}
+                        key={answerId}
+                        onClick={() => setSelectedAnswer(answerId)}>
                         {question?.choices[answerId]}
                     </QuestionChoice>
                 ))}
