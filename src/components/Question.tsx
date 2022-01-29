@@ -24,7 +24,7 @@ function Question({ question }: { question?: QuestionType }) {
 
             <QuestionChoiceContainer>
                 {Object.getOwnPropertyNames(question?.choices || {}).map((key: string) => (
-                    <QuestionChoice key={key}>{question?.choices[key]}</QuestionChoice>
+                    <QuestionChoice highlighted={false} key={key}>{question?.choices[key]}</QuestionChoice>
                 ))}
             </QuestionChoiceContainer>
 

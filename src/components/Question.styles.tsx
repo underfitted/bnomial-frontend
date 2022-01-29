@@ -2,7 +2,7 @@ import tw, { styled } from "twin.macro";
 
 export const QuestionNumberContainer = styled.div`
     ${tw`
-    flex    
+    flex
     items-center
     text-xs
     font-mono
@@ -13,7 +13,7 @@ export const QuestionNumber = styled.div`
     ${tw`
     rounded-sm
     px-2
-    py-1 
+    py-1
     ml-4
     bg-[#565758]
   `}
@@ -42,24 +42,31 @@ export const QuestionChoiceContainer = styled.div`
     `}
 `;
 
+type QuestionChoiceProps = {
+    highlighted: boolean;
+};
+
 export const QuestionChoice = styled.button`
     ${tw`
-    cursor-pointer
-    block
-    w-full
-    text-left
-    mb-1
-    rounded-md
-    p-5
-    border-0
-    bg-[#242526]
-    text-[#868787]
-    hover:(bg-[#565758] text-white)
-  `}
+        cursor-pointer
+        block
+        w-full
+        text-left
+        mb-1
+        rounded-md
+        p-5
+        border-0
+        bg-[#242526]
+        text-[#868787]
+        hover:(bg-[#565758] text-white)
+    `}
+    ${({ highlighted }: QuestionChoiceProps) => {
+        if (highlighted) return tw`bg-[#565758] text-white`;
+    }}
 `;
 
 export const QuestionButtonContainer = styled.div`
-    ${tw` 
+    ${tw`
     mt-8
     `}
 `;
