@@ -19,6 +19,10 @@ const HomePage = () => {
                         <img src="./bnomial-badge-3d.png" alt="The Bnomial achievements badge" />
                     </HeroImage>
                 </HeroContainer>
+                <QuestionContainer>
+                    <h2>Do you want to give it a try?</h2>
+                    <p>Can you answer the following questions?</p>
+                </QuestionContainer>
             </PageContainer>
             <Footer />
         </>
