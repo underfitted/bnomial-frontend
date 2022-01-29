@@ -4,7 +4,7 @@ import PlaceholderPage from "./components/PlaceholderPage";
 import PageLayout from "./components/PageLayout";
 import QuizPage from "./components/QuizPage";
 
-import { ApiContext, DefaultApiClient, DummyApiClient } from "./api";
+import { ApiContext, DummyApiClient } from "./api";
 import { pathForPage } from "./pages";
 
 function App() {
