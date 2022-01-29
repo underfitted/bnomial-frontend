@@ -15,6 +15,24 @@ describe("Question", () => {
         expect(screen.getByText(question.title)).toBeInTheDocument();
         expect(screen.getByText(question.content)).toBeInTheDocument();
     });
+
+    test("it shows the question choices", () => {
+        const question = buildQuestion({
+            choices: {
+                A: "Paris",
+                B: "London",
+                C: "Berlin",
+                D: "Madrid",
+            },
+        });
+
+        render(<Question question={question} />);
+
+        expect(screen.getByText(question.choices.A)).toBeInTheDocument();
+        expect(screen.getByText(question.choices.B)).toBeInTheDocument();
+        expect(screen.getByText(question.choices.C)).toBeInTheDocument();
+        expect(screen.getByText(question.choices.D)).toBeInTheDocument();
+    });
 });
 
 const buildQuestion = (values?: Partial<QuestionType>): QuestionType => ({
