@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
 import { Question as QuestionType } from "../types";
 import Question from "./Question";
@@ -32,6 +33,25 @@ describe("Question", () => {
         expect(screen.getByText(question.choices.B)).toBeInTheDocument();
         expect(screen.getByText(question.choices.C)).toBeInTheDocument();
         expect(screen.getByText(question.choices.D)).toBeInTheDocument();
+    });
+
+    test("it shows the submit button after selecting an answer", () => {
+        const question = buildQuestion({
+            choices: {
+                A: "Paris",
+                B: "London",
+                C: "Berlin",
+                D: "Madrid",
+            },
+        });
+
+        render(<Question question={question} />);
+
+        expect(screen.queryByText(/SUBMIT/)).not.toBeInTheDocument();
+
+        userEvent.click(screen.getByText("Paris"));
+
+        expect(screen.getByText(/SUBMIT/)).toBeInTheDocument();
     });
 });
 

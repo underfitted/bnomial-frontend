@@ -12,6 +12,8 @@ import {
 import { Question as QuestionType } from "../types";
 
 function Question({ question }: { question?: QuestionType }) {
+    const [selectedAnswer, setSelectedAnswer] = React.useState<string | null>(null);
+
     return (
         <>
             <QuestionNumberContainer>
@@ -23,15 +25,19 @@ function Question({ question }: { question?: QuestionType }) {
             <QuestionDescription>{question?.content}</QuestionDescription>
 
             <QuestionChoiceContainer>
-                {Object.getOwnPropertyNames(question?.choices || {}).map((key: string) => (
-                    <QuestionChoice highlighted={false} key={key}>{question?.choices[key]}</QuestionChoice>
+                {Object.getOwnPropertyNames(question?.choices || {}).map((answerId: string) => (
+                    <QuestionChoice highlighted={false} key={answerId} onClick={() => setSelectedAnswer(answerId)}>
+                        {question?.choices[answerId]}
+                    </QuestionChoice>
                 ))}
             </QuestionChoiceContainer>
 
-            <QuestionButtonContainer>
-                <QuestionButton>&gt; SUBMIT MY ANSWER</QuestionButton>
-                <QuestionButton>✓ I&apos;M DONE</QuestionButton>
-            </QuestionButtonContainer>
+            {selectedAnswer && (
+                <QuestionButtonContainer>
+                    <QuestionButton>&gt; SUBMIT MY ANSWER</QuestionButton>
+                    <QuestionButton>✓ I&apos;M DONE</QuestionButton>
+                </QuestionButtonContainer>
+            )}
         </>
     );
 }
