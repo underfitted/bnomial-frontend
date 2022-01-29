@@ -1,13 +1,29 @@
+import React from "react";
+import { Question as QuestionType } from "../types";
+import { useApiClient } from "../api";
+import Question from "./Question";
+
 import Header from "./Header";
 import Footer from "./Footer";
-import { PageContainer, HeroContainer, HeroImage, QuestionContainer } from "./HomePage.styles";
+import { PageContainer, HeroSection, HeroImage, QuestionSection, QuestionContainer } from "./HomePage.styles";
 
 const HomePage = () => {
+    const apiClient = useApiClient();
+    const [question, setQuestion] = React.useState<QuestionType>();
+
+    React.useEffect(() => {
+        (async () => {
+            // Load Random Question
+            const question = await apiClient.getRandomQuestion();
+            setQuestion(question);
+        })();
+    }, [apiClient]);
+
     return (
         <>
             <Header />
             <PageContainer>
-                <HeroContainer>
+                <HeroSection>
                     <div>
                         <h1>Prove your machine learning knowledge</h1>
                         <p>
@@ -18,11 +34,14 @@ const HomePage = () => {
                     <HeroImage>
                         <img src="./bnomial-badge-3d.png" alt="The Bnomial achievements badge" />
                     </HeroImage>
-                </HeroContainer>
-                <QuestionContainer>
+                </HeroSection>
+                <QuestionSection>
                     <h2>Do you want to give it a try?</h2>
                     <p>Can you answer the following questions?</p>
-                </QuestionContainer>
+                    <QuestionContainer>
+                        <Question question={question} />
+                    </QuestionContainer>
+                </QuestionSection>
             </PageContainer>
             <Footer />
         </>

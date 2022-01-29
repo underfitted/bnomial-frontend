@@ -9,7 +9,7 @@ export const PageContainer = styled.div`
     `}
 `;
 
-export const HeroContainer = styled.div`
+export const HeroSection = styled.div`
     ${tw`
     grid
     grid-cols-1
@@ -46,7 +46,7 @@ export const HeroImage = styled.h2`
     }
 `;
 
-export const QuestionContainer = styled.div`
+export const QuestionSection = styled.div`
     ${tw`
     
     `}
@@ -67,4 +67,15 @@ export const QuestionContainer = styled.div`
         leading-3
         `}
     }
+`;
+
+export const QuestionContainer = styled.div`
+    ${tw`
+    mt-16
+    mx-16
+    px-24
+    py-8
+    rounded-lg
+    bg-[#1d1e1f]
+    `}
 `;
