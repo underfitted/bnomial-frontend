@@ -11,29 +11,43 @@ import {
 } from "./Question.styles";
 import { Question as QuestionType } from "../types";
 
-function Question({ question }: { question?: QuestionType }) {
+type Props = {
+    question: QuestionType;
+    onSubmit: (answer: string) => void;
+};
+
+const Question = ({ question, onSubmit }: Props) => {
+    const [selectedAnswer, setSelectedAnswer] = React.useState<string | null>(null);
+
     return (
         <>
             <QuestionNumberContainer>
                 QUESTION
-                <QuestionNumber>{question?.id}</QuestionNumber>
+                <QuestionNumber>{question.id}</QuestionNumber>
             </QuestionNumberContainer>
 
-            <QuestionTitle>{question?.title}</QuestionTitle>
-            <QuestionDescription>{question?.content}</QuestionDescription>
+            <QuestionTitle>{question.title}</QuestionTitle>
+            <QuestionDescription>{question.content}</QuestionDescription>
 
             <QuestionChoiceContainer>
-                {Object.getOwnPropertyNames(question?.choices || {}).map((key: string) => (
-                    <QuestionChoice key={key}>{question?.choices[key]}</QuestionChoice>
+                {Object.getOwnPropertyNames(question.choices).map((answerId: string) => (
+                    <QuestionChoice
+                        highlighted={selectedAnswer === answerId}
+                        key={answerId}
+                        onClick={() => setSelectedAnswer(answerId)}>
+                        {question.choices[answerId]}
+                    </QuestionChoice>
                 ))}
             </QuestionChoiceContainer>
 
-            <QuestionButtonContainer>
-                <QuestionButton>&gt; SUBMIT MY ANSWER</QuestionButton>
-                <QuestionButton>✓ I&apos;M DONE</QuestionButton>
-            </QuestionButtonContainer>
+            {selectedAnswer && (
+                <QuestionButtonContainer>
+                    <QuestionButton onClick={() => onSubmit(selectedAnswer)}>&gt; SUBMIT MY ANSWER</QuestionButton>
+                    <QuestionButton>✓ I&apos;M DONE</QuestionButton>
+                </QuestionButtonContainer>
+            )}
         </>
     );
-}
+};
 
 export default Question;

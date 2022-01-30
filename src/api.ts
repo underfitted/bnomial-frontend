@@ -30,7 +30,7 @@ export const DefaultApiClient: ApiClient = {
 // This client can be used to mock the API for testing
 export const DummyApiClient: ApiClient = {
     getRandomQuestion: async () => {
-        const dummyQuestion = {
+        const dummyQuestion: Question = {
             id: "2aknNA2V",
             title: "What is the capital of Spain?",
             content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -39,9 +39,8 @@ export const DummyApiClient: ApiClient = {
                 "6YaCF2pa": "Miami",
                 JAXPfWeO: "Madrid",
             },
-            practice: false,
         };
 
-        return dummyQuestion as Question;
+        return dummyQuestion;
     },
 };
