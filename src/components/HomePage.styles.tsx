@@ -9,7 +9,7 @@ export const HomeContainer = styled.div`
     `}
 `;
 
-export const HeroSection = styled.div`
+export const HeroContainer = styled.div`
     ${tw`
     grid
     grid-cols-1
