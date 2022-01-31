@@ -75,7 +75,7 @@ describe("Question", () => {
 });
 
 const buildQuestion = (values?: Partial<QuestionType>): QuestionType => ({
-    id: 'abc',
+    id: "abc",
     title: "What is the capital of France?",
     content: "The capital of France is Paris.",
     choices: {

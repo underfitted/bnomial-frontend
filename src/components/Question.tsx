@@ -13,11 +13,11 @@ import { Question as QuestionType } from "../types";
 
 type Props = {
     question: QuestionType;
-    compact: boolean;
     onSubmit: (answer: string) => void;
+    compact?: boolean;
 };
 
-const Question = ({ question, compact, onSubmit }: Props) => {
+const Question = ({ question, onSubmit, compact = false }: Props) => {
     const [selectedAnswer, setSelectedAnswer] = React.useState<string | null>(null);
 
     return (

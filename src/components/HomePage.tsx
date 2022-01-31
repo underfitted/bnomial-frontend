@@ -33,17 +33,23 @@ const HeroSection = () => {
     );
 };
 
-function QuestionSection({ question }: { question?: QuestionType | undefined }) {
+const QuestionSection = ({ question }: { question: QuestionType }) => {
     return (
         <HomeSection>
             <h2>Do you want to give it a try?</h2>
             <p>Can you answer the following question?</p>
             <QuestionContainer>
-                <Question question={question} compact={true} />
+                <Question
+                    question={question}
+                    compact={true}
+                    onSubmit={() => {
+                        /* do nothing yet */
+                    }}
+                />
             </QuestionContainer>
         </HomeSection>
     );
-}
+};
 
 const HowItWorksSection = () => {
     return (
@@ -88,6 +94,10 @@ const HomePage = () => {
             setQuestion(question);
         })();
     }, [apiClient]);
+
+    if (!question) {
+        return <div>Loading...</div>;
+    }
 
     return (
         <PageContainer>
