@@ -13,27 +13,31 @@ import { Question as QuestionType } from "../types";
 
 type Props = {
     question: QuestionType;
+    compact: boolean;
     onSubmit: (answer: string) => void;
 };
 
-const Question = ({ question, onSubmit }: Props) => {
+const Question = ({ question, compact, onSubmit }: Props) => {
     const [selectedAnswer, setSelectedAnswer] = React.useState<string | null>(null);
 
     return (
         <>
-            <QuestionNumberContainer>
-                QUESTION
-                <QuestionNumber>{question.id}</QuestionNumber>
-            </QuestionNumberContainer>
+            {!compact ? (
+                <QuestionNumberContainer>
+                    QUESTION
+                    <QuestionNumber>{question.id}</QuestionNumber>
+                </QuestionNumberContainer>
+            ) : null}
 
             <QuestionTitle>{question.title}</QuestionTitle>
             <QuestionDescription>{question.content}</QuestionDescription>
 
-            <QuestionChoiceContainer>
+            <QuestionChoiceContainer compact={compact}>
                 {Object.getOwnPropertyNames(question.choices).map((answerId: string) => (
                     <QuestionChoice
                         highlighted={selectedAnswer === answerId}
                         key={answerId}
+                        compact={compact}
                         onClick={() => setSelectedAnswer(answerId)}>
                         {question.choices[answerId]}
                     </QuestionChoice>

@@ -1,10 +1,10 @@
 import tw, { styled } from "twin.macro";
 
-export const PageContainer = styled.div`
+export const HomeContainer = styled.div`
     ${tw`
     mt-8
     mb-4
-    p-8
+    p-4
     max-w-screen-md
     `}
 `;
@@ -34,9 +34,10 @@ export const HeroSection = styled.div`
     }
 `;
 
-export const HeroImage = styled.h2`
+export const HeroImage = styled.div`
     ${tw`
-    p-8
+    py-4
+    pl-12
     `}
 
     img {
@@ -46,9 +47,10 @@ export const HeroImage = styled.h2`
     }
 `;
 
-export const QuestionSection = styled.div`
+export const HomeSection = styled.div`
     ${tw`
-    
+    mt-16
+    mb-16
     `}
 
     h2 {
@@ -65,17 +67,44 @@ export const QuestionSection = styled.div`
         font-mono
         text-sm
         leading-3
+        mb-8
         `}
     }
 `;
 
 export const QuestionContainer = styled.div`
     ${tw`
-    mt-16
     mx-16
-    px-24
-    py-8
+    p-8
     rounded-lg
     bg-[#1d1e1f]
     `}
+`;
+
+export const HowItWorksGrid = styled.div`
+    ${tw`
+    grid
+    grid-cols-1
+    md:grid-cols-3
+    gap-5
+    items-start
+    font-mono
+    text-sm
+    `}
+
+    h3 {
+        ${tw`
+        text-center
+        font-mono
+        text-base
+        leading-3
+        `}
+    }
+
+    p {
+        ${tw`
+        text-left
+        leading-5
+        `}
+    }
 `;
