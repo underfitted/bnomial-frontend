@@ -6,6 +6,7 @@ export const QuestionNumberContainer = styled.div`
     items-center
     text-xs
     font-mono
+    mb-16
   `}
 `;
 
@@ -21,13 +22,13 @@ export const QuestionNumber = styled.div`
 
 export const QuestionTitle = styled.h1`
     ${tw`
-    mt-16
     text-2xl
     font-bold
+    m-0
   `}
 `;
 
-export const QuestionDescription = styled.p`
+export const QuestionDescription = styled.div`
     ${tw`
     mt-8
     font-mono
@@ -36,14 +37,13 @@ export const QuestionDescription = styled.p`
   `}
 `;
 
-export const QuestionChoiceContainer = styled.div`
-    ${tw`
-    mt-24
-    `}
-`;
+export const QuestionChoiceContainer = styled.div(({ compact }: { compact?: boolean }) =>
+    compact ? tw`mt-8` : tw`mt-24`
+);
 
 type QuestionChoiceProps = {
     highlighted: boolean;
+    compact?: boolean;
 };
 
 export const QuestionChoice = styled.button`
@@ -62,6 +62,9 @@ export const QuestionChoice = styled.button`
     `}
     ${({ highlighted }: QuestionChoiceProps) => {
         if (highlighted) return tw`bg-[#565758] text-white`;
+    }}
+    ${({ compact }: QuestionChoiceProps) => {
+        if (compact) return tw`p-3`;
     }}
 `;
 
