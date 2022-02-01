@@ -43,7 +43,7 @@ export const QuestionChoiceContainer = styled.div(({ compact }: { compact?: bool
 
 type QuestionChoiceProps = {
     highlighted: boolean;
-    compact: boolean | undefined;
+    compact?: boolean;
 };
 
 export const QuestionChoice = styled.button`
