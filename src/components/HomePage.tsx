@@ -20,7 +20,7 @@ const HeroSection = () => {
     return (
         <HeroContainer>
             <div>
-                <h1>Prove your machine learning knowledge</h1>
+                <h1>Prove your machine learning knowledge TEST</h1>
                 <p>
                     Bnomial let&apos;s you answer machine learning questions, compare yourself to others and create a
                     digital certificate of your knowledge.
