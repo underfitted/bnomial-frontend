@@ -1,3 +1,4 @@
+import { ApiClient } from "./api";
 import { Question } from "./types";
 
 let nextId = 0;
@@ -19,4 +20,9 @@ export const buildQuestion = (values?: Partial<Question>): Question => ({
         D: "Madrid",
     },
     ...(values || {}),
+});
+
+export const buildMockedApiClient = (): jest.Mocked<ApiClient> => ({
+    getSampleQuestions: jest.fn(),
+    getRandomQuestion: jest.fn(),
 });
