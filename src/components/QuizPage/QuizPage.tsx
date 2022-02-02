@@ -1,7 +1,7 @@
 import React from "react";
 import { Question as QuestionType } from "../../types";
 import { useApiClient } from "../../api";
-import Question from "../Question";
+import QuizDisplay, { QuizHandler } from "./QuizDisplay";
 
 const QuizPage = () => {
     const apiClient = useApiClient();
@@ -15,18 +15,26 @@ const QuizPage = () => {
         })();
     }, [apiClient]);
 
+    const quizHandler = React.useMemo<QuizHandler>(
+        () => ({
+            getNextQuestion: async () => {
+                if (!question) {
+                    return { type: "not_started" };
+                }
+                return { type: "question", question };
+            },
+            answerQuestion: async () => {
+                // ** TODO
+            },
+        }),
+        [question]
+    );
+
     if (!question) {
         return <div>Loading...</div>;
     }
 
-    return (
-        <Question
-            question={question}
-            onSubmit={() => {
-                /* do nothing yet */
-            }}
-        />
-    );
+    return <QuizDisplay quizHandler={quizHandler} />;
 };
 
 export default QuizPage;
