@@ -1,0 +1,3 @@
+[submodule "bnomial"]
+	path = bnomial
+	url = https://github.com/underfitted/bnomial
