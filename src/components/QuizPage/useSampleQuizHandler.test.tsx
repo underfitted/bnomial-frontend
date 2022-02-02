@@ -61,6 +61,21 @@ describe("useSampleQuizHandler", () => {
 
         expect(storedAnswers).toEqual({ [question.id]: answer });
     });
+
+    test("skips questions with stored answers", async () => {
+        const skippedQuestion = buildQuestion();
+        const mockApiClient = buildMockedApiClient();
+        mockApiClient.getSampleQuestions.mockResolvedValue([skippedQuestion]);
+        window.localStorage.setItem("answers", JSON.stringify({ [skippedQuestion.id]: firstQuestionChoice(skippedQuestion) }));
+
+        const { result } = renderHook(() => useSampleQuizHandler(), {
+            wrapper: provideApiClientWrapper(mockApiClient),
+        });
+        const handler = result.current;
+
+        const state = await handler.getNextQuestion();
+        expect(state.type).toBe("no_more_questions");
+    });
 });
 
 const provideApiClientWrapper = (apiClient: ApiClient) => {
