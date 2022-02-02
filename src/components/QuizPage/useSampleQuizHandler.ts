@@ -9,7 +9,7 @@ const useSampleQuizHandler = (): QuizHandler => {
 
     const result = React.useMemo(() => {
         let sampleQuestions: Question[] | null = null;
-        const answers: { [questionId: string]: string } = {}; // TODO: Get from Cookies
+        const answers: { [questionId: string]: string } = getAnswersFromLocalStorage();
 
         const handler: QuizHandler = {
             getNextQuestion: async () => {
@@ -28,7 +28,7 @@ const useSampleQuizHandler = (): QuizHandler => {
             },
             answerQuestion: async (questionId, answer) => {
                 answers[questionId] = answer;
-                // TODO: Store in cookies
+                storeAnswerInLocalStorage(questionId, answer);
             },
         };
 
@@ -36,6 +36,16 @@ const useSampleQuizHandler = (): QuizHandler => {
     }, [apiClient]);
 
     return result;
+};
+
+const LOCAL_STORAGE_KEY = "sampleQuestionAnswers";
+
+const getAnswersFromLocalStorage = () => JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY) || "{}");
+
+const storeAnswerInLocalStorage = (questionId: string, answer: string) => {
+    const answers = getAnswersFromLocalStorage();
+    answers[questionId] = answer;
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(answers));
 };
 
 export default useSampleQuizHandler;
