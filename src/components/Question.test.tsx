@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-import { Question as QuestionType } from "../types";
+import { buildQuestion } from "../testHelper";
 import Question from "./Question";
 
 describe("Question", () => {
@@ -72,17 +72,4 @@ describe("Question", () => {
 
         expect(onSubmit).toHaveBeenCalledWith("C");
     });
-});
-
-const buildQuestion = (values?: Partial<QuestionType>): QuestionType => ({
-    id: "abc",
-    title: "What is the capital of France?",
-    content: "The capital of France is Paris.",
-    choices: {
-        A: "Paris",
-        B: "London",
-        C: "Berlin",
-        D: "Madrid",
-    },
-    ...(values || {}),
 });
