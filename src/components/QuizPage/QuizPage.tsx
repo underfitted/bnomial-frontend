@@ -5,32 +5,42 @@ import QuizDisplay, { QuizHandler } from "./QuizDisplay";
 
 const QuizPage = () => {
     const apiClient = useApiClient();
-    const [question, setQuestion] = React.useState<QuestionType>();
+    const [sampleQuestions, setSampleQuestions] = React.useState<QuestionType[]>();
 
     React.useEffect(() => {
         (async () => {
-            // Load Random Question
-            const question = await apiClient.getRandomQuestion();
-            setQuestion(question);
+            const sampleQuestions = await apiClient.getSampleQuestions();
+            setSampleQuestions(sampleQuestions);
         })();
     }, [apiClient]);
 
-    const quizHandler = React.useMemo<QuizHandler>(
-        () => ({
+    const quizHandler = React.useMemo<QuizHandler>(() => {
+        const answers: { [questionId: string]: string } = {}; // TODO: Get from cookie
+
+        return {
             getNextQuestion: async () => {
-                if (!question) {
+                if (!sampleQuestions) {
                     return { type: "not_started" };
                 }
+
+                const unansweredQuestions = sampleQuestions.filter(question => answers[question.id] === undefined);
+                if (unansweredQuestions.length === 0) {
+                    return { type: "no_more_questions" };
+                }
+
+                const randomIndex = Math.floor(Math.random() * unansweredQuestions.length);
+                const question = unansweredQuestions[randomIndex];
+
                 return { type: "question", question };
             },
-            answerQuestion: async () => {
-                // ** TODO
+            answerQuestion: async (questionId, answer) => {
+                answers[questionId] = answer;
+                // TODO: Save to cookie
             },
-        }),
-        [question]
-    );
+        };
+    }, [sampleQuestions]);
 
-    if (!question) {
+    if (!sampleQuestions) {
         return <div>Loading...</div>;
     }
 
