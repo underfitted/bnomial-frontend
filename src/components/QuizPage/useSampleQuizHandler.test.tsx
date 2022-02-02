@@ -9,6 +9,10 @@ import { QuizState } from "./QuizDisplay";
 import useSampleQuizHandler from "./useSampleQuizHandler";
 
 describe("useSampleQuizHandler", () => {
+    afterEach(() => {
+        window.localStorage.clear();
+    });
+
     test("returns all questions once", async () => {
         const sampleQuestions = [buildQuestion(), buildQuestion(), buildQuestion()];
         const mockApiClient = buildMockedApiClient();
@@ -39,6 +43,23 @@ describe("useSampleQuizHandler", () => {
         await handler.answerQuestion(question.id, firstQuestionChoice(question));
         const state = await handler.getNextQuestion();
         expect(state.type).toBe("no_more_questions");
+    });
+
+    test("stores answers in local storage", async () => {
+        const question = buildQuestion();
+        const mockApiClient = buildMockedApiClient();
+        mockApiClient.getSampleQuestions.mockResolvedValue([question]);
+
+        const { result } = renderHook(() => useSampleQuizHandler(), {
+            wrapper: provideApiClientWrapper(mockApiClient),
+        });
+        const handler = result.current;
+
+        const answer = firstQuestionChoice(question);
+        await handler.answerQuestion(question.id, answer);
+        const storedAnswers = JSON.parse(window.localStorage.getItem("answers") as string);
+
+        expect(storedAnswers).toEqual({ [question.id]: answer });
     });
 });
 

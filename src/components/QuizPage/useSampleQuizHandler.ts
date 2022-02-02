@@ -28,7 +28,7 @@ const useSampleQuizHandler = (): QuizHandler => {
             },
             answerQuestion: async (questionId, answer) => {
                 answers[questionId] = answer;
-                // TODO: Store in cookies
+                storeAnswerInLocalStorage(questionId, answer);
             },
         };
 
@@ -36,6 +36,12 @@ const useSampleQuizHandler = (): QuizHandler => {
     }, [apiClient]);
 
     return result;
+};
+
+const storeAnswerInLocalStorage = (questionId: string, answer: string) => {
+    const answers = JSON.parse(localStorage.getItem("answers") || "{}");
+    answers[questionId] = answer;
+    localStorage.setItem("answers", JSON.stringify(answers));
 };
 
 export default useSampleQuizHandler;
