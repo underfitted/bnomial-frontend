@@ -57,7 +57,7 @@ describe("useSampleQuizHandler", () => {
 
         const answer = firstQuestionChoice(question);
         await handler.answerQuestion(question.id, answer);
-        const storedAnswers = JSON.parse(window.localStorage.getItem("answers") as string);
+        const storedAnswers = JSON.parse(window.localStorage.getItem("sampleQuestionAnswers") as string);
 
         expect(storedAnswers).toEqual({ [question.id]: answer });
     });
@@ -66,7 +66,10 @@ describe("useSampleQuizHandler", () => {
         const skippedQuestion = buildQuestion();
         const mockApiClient = buildMockedApiClient();
         mockApiClient.getSampleQuestions.mockResolvedValue([skippedQuestion]);
-        window.localStorage.setItem("answers", JSON.stringify({ [skippedQuestion.id]: firstQuestionChoice(skippedQuestion) }));
+        window.localStorage.setItem(
+            "sampleQuestionAnswers",
+            JSON.stringify({ [skippedQuestion.id]: firstQuestionChoice(skippedQuestion) })
+        );
 
         const { result } = renderHook(() => useSampleQuizHandler(), {
             wrapper: provideApiClientWrapper(mockApiClient),

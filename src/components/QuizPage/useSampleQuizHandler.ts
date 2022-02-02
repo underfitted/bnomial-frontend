@@ -38,12 +38,14 @@ const useSampleQuizHandler = (): QuizHandler => {
     return result;
 };
 
-const getAnswersFromLocalStorage = () => JSON.parse(localStorage.getItem("answers") || "{}");
+const LOCAL_STORAGE_KEY = "sampleQuestionAnswers";
+
+const getAnswersFromLocalStorage = () => JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY) || "{}");
 
 const storeAnswerInLocalStorage = (questionId: string, answer: string) => {
     const answers = getAnswersFromLocalStorage();
     answers[questionId] = answer;
-    localStorage.setItem("answers", JSON.stringify(answers));
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(answers));
 };
 
 export default useSampleQuizHandler;
