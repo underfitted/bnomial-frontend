@@ -9,7 +9,7 @@ export type QuizState =
 
 export interface QuizHandler {
     getNextQuestion: () => Promise<QuizState>;
-    answerQuestion: (questionId: string, answer: string) => Promise<void>;
+    answerQuestion: (questionId: string, answer: string[]) => Promise<void>;
 }
 
 type Props = {

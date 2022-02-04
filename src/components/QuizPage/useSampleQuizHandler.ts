@@ -9,7 +9,7 @@ const useSampleQuizHandler = (): QuizHandler => {
 
     const result = React.useMemo(() => {
         let sampleQuestions: Question[] | null = null;
-        const answers: { [questionId: string]: string } = getAnswersFromLocalStorage();
+        const submittedAnswers: { [questionId: string]: string[] } = getAnswersFromLocalStorage();
 
         const handler: QuizHandler = {
             getNextQuestion: async () => {
@@ -17,7 +17,9 @@ const useSampleQuizHandler = (): QuizHandler => {
                     sampleQuestions = await apiClient.getSampleQuestions();
                 }
 
-                const unansweredQuestions = sampleQuestions.filter((question) => answers[question.id] === undefined);
+                const unansweredQuestions = sampleQuestions.filter(
+                    (question) => submittedAnswers[question.id] === undefined
+                );
                 if (unansweredQuestions.length === 0) {
                     return { type: "no_more_questions" };
                 }
@@ -27,7 +29,7 @@ const useSampleQuizHandler = (): QuizHandler => {
                 return { type: "question", question };
             },
             answerQuestion: async (questionId, answer) => {
-                answers[questionId] = answer;
+                submittedAnswers[questionId] = answer;
                 storeAnswerInLocalStorage(questionId, answer);
             },
         };
@@ -42,7 +44,7 @@ const LOCAL_STORAGE_KEY = "sampleQuestionAnswers";
 
 const getAnswersFromLocalStorage = () => JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY) || "{}");
 
-const storeAnswerInLocalStorage = (questionId: string, answer: string) => {
+const storeAnswerInLocalStorage = (questionId: string, answer: string[]) => {
     const answers = getAnswersFromLocalStorage();
     answers[questionId] = answer;
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(answers));

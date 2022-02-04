@@ -35,7 +35,7 @@ describe("Question", () => {
         expect(screen.getByText(question.choices.D)).toBeInTheDocument();
     });
 
-    test("it shows the submit button after selecting an answer", () => {
+    test("it shows the submit button only when selecting at least one answer", () => {
         const question = buildQuestion({
             choices: {
                 A: "Paris",
@@ -52,6 +52,10 @@ describe("Question", () => {
         userEvent.click(screen.getByText("Paris"));
 
         expect(screen.getByText(/SUBMIT/)).toBeInTheDocument();
+
+        userEvent.click(screen.getByText("Paris"));
+
+        expect(screen.queryByText(/SUBMIT/)).not.toBeInTheDocument();
     });
 
     test("calls onSubmit with selected answer id", () => {
@@ -70,6 +74,26 @@ describe("Question", () => {
         userEvent.click(screen.getByText("Berlin"));
         userEvent.click(screen.getByText(/SUBMIT/));
 
-        expect(onSubmit).toHaveBeenCalledWith("C");
+        expect(onSubmit).toHaveBeenCalledWith(["C"]);
+    });
+
+    test("can submit multiple choices as answer", () => {
+        const question = buildQuestion({
+            choices: {
+                A: "Paris",
+                B: "London",
+                C: "Berlin",
+                D: "Madrid",
+            },
+        });
+        const onSubmit = jest.fn();
+
+        render(<Question question={question} onSubmit={onSubmit} />);
+
+        userEvent.click(screen.getByText("Berlin"));
+        userEvent.click(screen.getByText("London"));
+        userEvent.click(screen.getByText(/SUBMIT/));
+
+        expect(onSubmit).toHaveBeenCalledWith(["C", "B"]);
     });
 });

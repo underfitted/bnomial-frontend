@@ -88,7 +88,7 @@ const provideApiClientWrapper = (apiClient: ApiClient) => {
     return Wrapper;
 };
 
-const firstQuestionChoice = (question: Question) => question.choices[Object.keys(question.choices)[0]];
+const firstQuestionChoice = (question: Question) => [Object.keys(question.choices)[0]];
 
 const expectQuestion = (state: QuizState): Question => {
     if (state.type !== "question") {
