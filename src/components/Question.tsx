@@ -13,18 +13,18 @@ import { Question as QuestionType } from "../types";
 
 type Props = {
     question: QuestionType;
-    onSubmit: (answer: string[]) => void;
+    onSubmit: (answers: string[]) => void;
     compact?: boolean;
 };
 
 const Question = ({ question, onSubmit, compact = false }: Props) => {
-    const [selectedAnswer, setSelectedAnswer] = React.useState<string[]>([]);
+    const [selectedAnswers, setSelectedAnswers] = React.useState<string[]>([]);
 
     const toggleAnswer = (answerId: string) => {
-        if (selectedAnswer.includes(answerId)) {
-            setSelectedAnswer(selectedAnswer.filter(id => id !== answerId));
+        if (selectedAnswers.includes(answerId)) {
+            setSelectedAnswers(selectedAnswers.filter(id => id !== answerId));
         } else {
-            setSelectedAnswer([...selectedAnswer, answerId]);
+            setSelectedAnswers([...selectedAnswers, answerId]);
         }
     };
 
@@ -43,7 +43,7 @@ const Question = ({ question, onSubmit, compact = false }: Props) => {
             <QuestionChoiceContainer compact={compact}>
                 {Object.getOwnPropertyNames(question.choices).map((answerId: string) => (
                     <QuestionChoice
-                        highlighted={selectedAnswer.includes(answerId)}
+                        highlighted={selectedAnswers.includes(answerId)}
                         key={answerId}
                         compact={compact}
                         onClick={() => toggleAnswer(answerId)}>
@@ -52,9 +52,9 @@ const Question = ({ question, onSubmit, compact = false }: Props) => {
                 ))}
             </QuestionChoiceContainer>
 
-            {selectedAnswer.length > 0 && (
+            {selectedAnswers.length > 0 && (
                 <QuestionButtonContainer>
-                    <QuestionButton onClick={() => onSubmit(selectedAnswer)}>&gt; SUBMIT MY ANSWER</QuestionButton>
+                    <QuestionButton onClick={() => onSubmit(selectedAnswers)}>&gt; SUBMIT MY ANSWER</QuestionButton>
                     <QuestionButton>✓ I&apos;M DONE</QuestionButton>
                 </QuestionButtonContainer>
             )}

@@ -55,11 +55,11 @@ describe("useSampleQuizHandler", () => {
         });
         const handler = result.current;
 
-        const answer = firstQuestionChoice(question);
-        await handler.answerQuestion(question.id, answer);
+        const answers = firstQuestionChoice(question);
+        await handler.answerQuestion(question.id, answers);
         const storedAnswers = JSON.parse(window.localStorage.getItem("sampleQuestionAnswers") as string);
 
-        expect(storedAnswers).toEqual({ [question.id]: answer });
+        expect(storedAnswers).toEqual({ [question.id]: answers });
     });
 
     test("skips questions with stored answers", async () => {

@@ -77,7 +77,7 @@ describe("Question", () => {
         expect(onSubmit).toHaveBeenCalledWith(["C"]);
     });
 
-    test("can submit multiple choices as answer", () => {
+    test("can submit multiple answers", () => {
         const question = buildQuestion({
             choices: {
                 A: "Paris",
