@@ -1,8 +1,7 @@
 import React from "react";
 
-import * as generatedClient from "./api/generatedClient";
-
-import { Question } from "./types";
+import { Question } from "../types";
+import * as generatedClient from "./generatedClient";
 
 export interface ApiClient {
     getRandomQuestion: () => Promise<Question>;
