@@ -3,9 +3,12 @@ import { spawnSync } from "child_process";
 const GENERATED_FILEPATH = 'src/api/generatedClient.ts';
 
 const runNpxCommand = (command: string) => {
-    spawnSync("npx", command.split(' '), {
+    const { status } = spawnSync("npx", command.split(' '), {
         stdio: "inherit",
     });
+    if (status !== 0) {
+        process.exit(status || 1);
+    }
 };
 
 runNpxCommand(`oazapfts ./bnomial/openapi.yml ${GENERATED_FILEPATH} --optimistic`);
