@@ -1,5 +1,6 @@
 import React from "react";
-import axios from "axios";
+
+import * as generatedClient from "./api/generatedClient";
 
 import { Question } from "./types";
 
@@ -22,14 +23,8 @@ export const useApiClient = () => {
 const BACKEND_URL = "https://hv2i83bavj.execute-api.us-east-1.amazonaws.com/prod";
 
 export const DefaultApiClient: ApiClient = {
-    getRandomQuestion: async () => {
-        const response = await axios.get(`${BACKEND_URL}/questions/random`);
-        return response.data as Question;
-    },
-    getSampleQuestions: async () => {
-        const response = await axios.get(`${BACKEND_URL}/public/sample`);
-        return response.data as Question[];
-    },
+    getRandomQuestion: async () => generatedClient.getRandomQuestion({ baseUrl: BACKEND_URL }),
+    getSampleQuestions: async () => generatedClient.getSampleQuestions({ baseUrl: BACKEND_URL }),
 };
 
 // This client can be used to mock the API for testing
