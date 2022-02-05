@@ -3,9 +3,7 @@ import { spawnSync } from "child_process";
 const main = () => {
     generateApiClient();
 
-    const { stdout } = spawnSync("git", ["status"]);
-
-    if (stdout.toString().includes(GENERATED_FILEPATH)) {
+    if (!isApiClientUpToDate()) {
         console.error(
             `${GENERATED_FILEPATH} is not up to date. Please run "npm run generate-api-client" and commit the changes.`
         );
@@ -16,6 +14,11 @@ const main = () => {
 const generateApiClient = () => {
     runNpxCommand(`oazapfts ./bnomial/openapi.yml ${GENERATED_FILEPATH} --optimistic`);
     runNpxCommand(`prettier -w ${GENERATED_FILEPATH}`);
+};
+
+const isApiClientUpToDate = () => {
+    const { stdout } = spawnSync("git", ["status"]);
+    return !stdout.toString().includes(GENERATED_FILEPATH);
 };
 
 const GENERATED_FILEPATH = "src/api/generatedClient.ts";
