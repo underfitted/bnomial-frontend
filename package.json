@@ -47,6 +47,7 @@
         "autoprefixer": "^10.4.0",
         "eslint": "^8.7.0",
         "eslint-plugin-react": "^7.28.0",
+        "oazapfts": "^3.5.0",
         "postcss": "^8.4.5",
         "prettier": "^2.5.1",
         "react-scripts": "5.0.0",
