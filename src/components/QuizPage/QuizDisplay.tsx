@@ -9,7 +9,7 @@ export type QuizState =
 
 export interface QuizHandler {
     getNextQuestion: () => Promise<QuizState>;
-    answerQuestion: (questionId: string, answer: string) => Promise<void>;
+    answerQuestion: (questionId: string, answers: string[]) => Promise<void>;
 }
 
 type Props = {
@@ -40,10 +40,10 @@ const QuizDisplay = ({ quizHandler }: Props) => {
     return (
         <Question
             question={question}
-            onSubmit={(answer) => {
+            onSubmit={(answers) => {
                 (async () => {
                     setLoading(true);
-                    await quizHandler.answerQuestion(question.id, answer);
+                    await quizHandler.answerQuestion(question.id, answers);
                     const nextState = await quizHandler.getNextQuestion();
                     setState(nextState);
                     setLoading(false);

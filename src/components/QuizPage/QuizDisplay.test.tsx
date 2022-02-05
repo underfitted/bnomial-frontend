@@ -27,7 +27,7 @@ describe("QuizDisplay", () => {
         userEvent.click(screen.getByText("Paris"));
         userEvent.click(screen.getByText(/SUBMIT/));
 
-        expect(quizHandler.answerQuestion).toHaveBeenCalledWith(firstQuestion.id, "A");
+        expect(quizHandler.answerQuestion).toHaveBeenCalledWith(firstQuestion.id, ["A"]);
         await screen.findByText("What is the capital of Germany?");
     });
 });

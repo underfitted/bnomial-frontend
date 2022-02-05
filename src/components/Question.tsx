@@ -13,12 +13,20 @@ import { Question as QuestionType } from "../types";
 
 type Props = {
     question: QuestionType;
-    onSubmit: (answer: string) => void;
+    onSubmit: (answers: string[]) => void;
     compact?: boolean;
 };
 
 const Question = ({ question, onSubmit, compact = false }: Props) => {
-    const [selectedAnswer, setSelectedAnswer] = React.useState<string | null>(null);
+    const [selectedAnswers, setSelectedAnswers] = React.useState<string[]>([]);
+
+    const toggleAnswer = (answerId: string) => {
+        if (selectedAnswers.includes(answerId)) {
+            setSelectedAnswers(selectedAnswers.filter(id => id !== answerId));
+        } else {
+            setSelectedAnswers([...selectedAnswers, answerId]);
+        }
+    };
 
     return (
         <>
@@ -35,18 +43,18 @@ const Question = ({ question, onSubmit, compact = false }: Props) => {
             <QuestionChoiceContainer compact={compact}>
                 {Object.getOwnPropertyNames(question.choices).map((answerId: string) => (
                     <QuestionChoice
-                        highlighted={selectedAnswer === answerId}
+                        highlighted={selectedAnswers.includes(answerId)}
                         key={answerId}
                         compact={compact}
-                        onClick={() => setSelectedAnswer(answerId)}>
+                        onClick={() => toggleAnswer(answerId)}>
                         {question.choices[answerId]}
                     </QuestionChoice>
                 ))}
             </QuestionChoiceContainer>
 
-            {selectedAnswer && (
+            {selectedAnswers.length > 0 && (
                 <QuestionButtonContainer>
-                    <QuestionButton onClick={() => onSubmit(selectedAnswer)}>&gt; SUBMIT MY ANSWER</QuestionButton>
+                    <QuestionButton onClick={() => onSubmit(selectedAnswers)}>&gt; SUBMIT MY ANSWER</QuestionButton>
                     <QuestionButton>✓ I&apos;M DONE</QuestionButton>
                 </QuestionButtonContainer>
             )}
