@@ -15,7 +15,9 @@ export type Question = {
     id: string;
     title: string;
     content: string;
-    choices: object;
+    choices: {
+        [key: string]: string;
+    };
 };
 /**
  * Return a list of questions from the public database of open questions.
