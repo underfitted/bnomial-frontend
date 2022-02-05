@@ -1,7 +1,7 @@
 import { spawnSync } from "child_process";
 
 const main = () => {
-    runNpxCommand(`oazapfts ./bnomial/openapi.yml ${GENERATED_FILEPATH} --optimistic`);
+    generateApiClient();
 
     const { stdout } = spawnSync("git", ["status"]);
 
@@ -11,6 +11,11 @@ const main = () => {
         );
         process.exit(1);
     }
+};
+
+const generateApiClient = () => {
+    runNpxCommand(`oazapfts ./bnomial/openapi.yml ${GENERATED_FILEPATH} --optimistic`);
+    runNpxCommand(`prettier -w ${GENERATED_FILEPATH}`);
 };
 
 const GENERATED_FILEPATH = "src/api/generatedClient.ts";
