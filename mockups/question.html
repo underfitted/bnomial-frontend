@@ -16,31 +16,31 @@
         style="background-color: #131313; font-family: 'Space Mono', monospace"
         class="w-full"
     >
-    <div class="flex flex-col h-screen">
-        <header class="">
+    <div class="flex flex-col h-screen justify-center">
+        <header class="flex justify-center">
             <nav class="px-4 sm:px-6 lg:px-8" aria-label="Top">
-                <div class="w-full py-6 flex justify-between border-b lg:border-none">
-                    <div class="flex">
+                <div class="w-full py-6 border-b lg:border-none text-center">
+                    <div>
                         <h1 class="ml-10 text-3xl text-gray-200">
                             One <span class="text-green-500"> machine learning</span> question every day
                         </h1>
                     </div>
+                    <div class="text-gray-300 mt-4">Feb 10, 2022</div>
                 </div>
             </nav>
         </header>
 
-        <div class="ml-10 flex-grow max-w-6xl">
-            <div class="py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
-                <div class="text-gray-500">
-                    <span class="text-gray-300">Feb 10, 2022</span>. <br> Question's performance: 68%.
-                </div>
-                <h2
-                    class="text-3xl font-extrabold tracking-tight text-gray-200 sm:text-4xl mt-4"
-                >
-                    <span class="block">John is designing a new function</span>
-                </h2>
-                <div class="text-2xl text-gray-400 mt-6">
-                    <div>
+        <div class="ml-10 flex-grow flex justify-center">
+            
+            <div class="py-12 sm:px-6 lg:py-16 lg:px-8">
+                <div class="text-2xl text-gray-400 mt-6 max-w-5xl">
+                    <h2 class="text-3xl font-extrabold tracking-tight text-gray-200 sm:text-4xl mt-4">
+                        <span class="block">John is designing a new function</span>
+                    </h2>
+                    <div class="text-gray-500 text-lg mt-2">
+                        Question's performance: 68%.
+                    </div>    
+                    <div class="mt-8">
                         <p class="mt-3 sm:mt-4">
                             John knows that the entire goal of Gradient Descent is to
                             minimize the value of a function. The lower its value, the
@@ -121,9 +121,9 @@
         </div>
                
 
-        <footer class="text-gray-500 text-center flex justify-center bg-gray-800 p-12">
-            <div class="max-w-6xl text-center">
-                <p>
+        <footer class="text-gray-500 text-center flex justify-center p-12">
+            <div class="max-w-6xl text-center border-t-2 border-gray-800">
+                <p class="mt-8">
                     We publish one machine learning question every day so you can test
                     your knowledge and hopefully, learn something new. The
                     next question will drop in <span class="text-gray-300">2 hours and 15 minutes</span>.
