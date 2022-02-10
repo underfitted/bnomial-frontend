@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap"
+            rel="stylesheet"
+        />
+
+        <link href="tailwind.css" rel="stylesheet" />
+        <script async src="/cdn-cgi/bm/cv/669835187/api.js"></script>
+    </head>
+
+    <body
+        style="background-color: #131313; font-family: 'Space Mono', monospace"
+        class="max-w-6xl px-5"
+    >
+        <header class="">
+            <nav class="px-4 sm:px-6 lg:px-8" aria-label="Top">
+                <div class="w-full py-6 flex justify-between border-b lg:border-none">
+                    <div class="flex">
+                        <div class="hidden ml-10 space-x-8 lg:block">
+                            <img
+                                src="https://pr-6.d174vuemgec5wi.amplifyapp.com/logo.png"
+                                width="185"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <div class="ml-10">
+            <div class="py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+                <div class="text-gray-500">
+                    Feb 10, 2022. Question's performance: 68%.
+                </div>
+                <h2
+                    class="text-3xl font-extrabold tracking-tight text-gray-200 sm:text-4xl mt-4"
+                >
+                    <span class="block">John is designing a new function</span>
+                </h2>
+                <div class="text-2xl text-gray-400 mt-6">
+                    <div>
+                        <p class="mt-3 sm:mt-4">
+                            John knows that the entire goal of Gradient Descent is to
+                            minimize the value of a function. The lower its value, the
+                            better the model will be. John read about
+                            <b>mean squared error</b> (MSE) and how to use it for this
+                            purpose. <b>Mean absolute error</b> (MAE) seems to be
+                            another good alternative.
+                        </p>
+                        <p class="mt-3 sm:mt-4">
+                            But John has been thinking about designing a different
+                            function for his use case.
+                        </p>
+                        <p class="mt-3 sm:mt-4">
+                            He wants to use the inverse of the model's accuracy as the
+                            loss function. This way the model will try to minimize the
+                            number of mistakes it makes by looking directly at the
+                            accuracy of the predictions.
+                        </p>
+                        <p class="mt-3 sm:mt-4">
+                            Unfortunately, he soon discovered that this approach doesn't
+                            work.
+                        </p>
+                        <p class="mt-3 sm:mt-4 font-extrabold">What was the problem?</p>
+                    </div>
+                    <div class="mt-10">
+                        <div>
+                            <label class="inline-flex items-center">
+                                <input type="checkbox" class="form-checkbox" />
+                                <span class="ml-6"
+                                    >It wouldn't make sense to optimize the inverse of
+                                    the accuracy. Instead, John should try to turn the
+                                    algorithm into a maximization problem and work
+                                    directly with the original value.</span
+                                >
+                            </label>
+                        </div>
+                        <div class="mt-6">
+                            <label class="inline-flex items-center">
+                                <input type="checkbox" class="form-checkbox" checked />
+                                <span class="ml-6 text-green-400"
+                                    >Accuracy is not a differentiable function, so it
+                                    can't be optimized using Gradient Descent.</span
+                                >
+                            </label>
+                        </div>
+                        <div class="mt-6">
+                            <label class="inline-flex items-center">
+                                <input type="checkbox" class="form-checkbox" />
+                                <span class="ml-6"
+                                    >Minimizing the inverse of the accuracy is a very
+                                    slow process because of the extra computations
+                                    needed to compute the final value.</span
+                                >
+                            </label>
+                        </div>
+                        <div class="mt-6">
+                            <label class="inline-flex items-center">
+                                <input type="checkbox" class="form-checkbox" />
+                                <span class="ml-6 text-red-400"
+                                    >Gradient Descent only works with a predefined set
+                                    of loss functions.</span
+                                >
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-2xl text-blue-400 mt-20">
+                    You were really close! You just missed one of the correct choices.
+                </div>
+
+                <div class="mt-16 flex text-2xl text-white">
+                    <h2
+                    class="text-3xl font-extrabold tracking-tight text-gray-200 sm:text-4xl mt-4"
+                >
+                    <span class="block">Explanation</span>
+                </h2>
+                </div>
+
+                <div class="text-2xl text-gray-400 mt-6">
+                    <div>
+                        <p class="mt-3 sm:mt-4">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Etiam eget lacus nec ipsum faucibus semper. Suspendisse
+                            potenti. Ut venenatis in sapien in mollis. Vestibulum
+                            imperdiet, metus id eleifend tincidunt, mauris metus egestas
+                            sapien, ac pharetra metus augue tristique erat. Curabitur
+                            varius eget ex eu mollis. Nunc blandit nisl eget euismod
+                            pellentesque.
+                        </p>
+                        <p class="mt-3 sm:mt-4">
+                            Duis quis porta lacus. In ac leo odio. In tincidunt mauris a
+                            odio pretium, et lobortis metus tristique.
+                        </p>
+                        <p class="mt-3 sm:mt-4">
+                            Suspendisse eu tellus eu nisl scelerisque finibus. 
+                        </p>
+                        <p class="mt-3 sm:mt-4">
+                            Pellentesque dignissim nibh non dolor molestie, facilisis
+                            imperdiet arcu auctor. Ut sagittis tortor tristique auctor
+                            semper. Maecenas pellentesque sit amet lacus sed venenatis.
+                            Ut consequat leo quam, sit amet faucibus elit ullamcorper
+                            nec. Mauris ultricies convallis arcu, at luctus lectus porta
+                            ac. Etiam in vulputate nisl.
+                        </p>
+                        <p class="mt-3 sm:mt-4">
+                            Duis quis porta lacus. In ac leo odio. In tincidunt mauris a
+                            odio pretium, et lobortis metus tristique.
+                        </p>
+                        <p class="mt-3 sm:mt-4">
+                            Fusce sit amet urna id quam facilisis molestie nec quis felis. 
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="ml-20 mr-20 text-gray-500 w-full flex">
+            <div class="justify-center text-center py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+                <p>
+                    We publish one machine learning question every day so you can test
+                    your knowledge and hopefully, learn something new every day. The
+                    next question will drop in 2 hours and 15 minutes.
+                </p>
+            </div>
+        </footer>
+
+        <script type="text/javascript">
+            (function () {
+                window["__CF$cv$params"] = {
+                    r: "6db651dc4c41099e",
+                    m: "e_6cyxhvTghg_S1WPLvdFaSHSzQ2.LGOOZ6lCIECjU4-1644506408-0-AW7gM96tw6fAgXZZqKhSTu68Udxc8WIR+HWnxYC4vp4UpACKuMOiMinEN1W6d6TCNh1TIurE/FmL9lB73RGFBUjWdwS9emQrb6bv/J/+VV/llU3aj0WZfp1A9t5uUWKlc1Ty0tovU4LuydzqjwRRhF86CcE5SXFDktTUXoaOFjfHD8FIcdvECsLB/PSzvYWnoA==",
+                    s: [0x78e9d0c676, 0x98e80409a3],
+                };
+            })();
+        </script>
+    </body>
+</html>
