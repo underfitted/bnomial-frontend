@@ -14,8 +14,9 @@
 
     <body
         style="background-color: #131313; font-family: 'Space Mono', monospace"
-        class="max-w-6xl px-5"
+        class="w-full"
     >
+    <div class="flex flex-col h-screen">
         <header class="">
             <nav class="px-4 sm:px-6 lg:px-8" aria-label="Top">
                 <div class="w-full py-6 flex justify-between border-b lg:border-none">
@@ -31,7 +32,7 @@
             </nav>
         </header>
 
-        <div class="ml-10">
+        <div class="ml-10 flex-grow max-w-6xl">
             <div class="py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
                 <div class="text-gray-500">
                     Feb 10, 2022. Question's performance: 68%.
@@ -160,15 +161,19 @@
             </div>
         </div>
 
-        <footer class="ml-20 mr-20 text-gray-500 w-full flex">
-            <div class="justify-center text-center py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+        <footer class="text-gray-500 text-center flex justify-center bg-gray-800 p-12">
+            <div class="max-w-6xl text-center">
                 <p>
                     We publish one machine learning question every day so you can test
-                    your knowledge and hopefully, learn something new every day. The
-                    next question will drop in 2 hours and 15 minutes.
+                    your knowledge and hopefully, learn something new. The
+                    next question will drop in <span class="text-gray-300">2 hours and 15 minutes</span>.
+                </p>
+                <p class="mt-2">
+                    If you have questions or feedback, send us an email at <a href="mailto:hey@underfitted.io" class="text-blue-300">hey@underfitted.io</a>.
                 </p>
             </div>
         </footer>
+    </div>
 
         <script type="text/javascript">
             (function () {
